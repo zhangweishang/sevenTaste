@@ -1,0 +1,51 @@
+# 配置freemarker
+spring:
+  freemarker:
+    # 设置模板后缀名
+    suffix: .ftl
+    # 设置文档类型
+    content-type: text/html
+    # 设置页面编码格式
+    charset: UTF-8
+    # 设置页面缓存
+    cache: false
+    #请求上下文属性
+    request-context-attribute: request
+    # 设置ftl文件路径
+    template-loader-path:
+      - classpath:/templates
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://172.16.156.127:3306/seven_taste?characterEncoding=utf8&useSSL=false
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    #Redis服务器地址
+    host: 172.16.156.127
+    #Redis服务器连接端口
+    port: 6379
+    #Redis服务器连接密码（默认为空）
+    password:
+    jedis:
+      pool:
+        #连接池最大柱塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        #连接池中的最大空闲连接数
+        max-idle: 10
+        #连接池中的最小空闲连接数
+        min-idle: 0
+    #连接超时时间（毫秒）
+    timeout: 1000
+mybatis-plus:
+  #MyBatis Mapper 所对应的 XML 文件位置
+  mapper-locations: classpath:static/mapper/*.xml
+  #开启驼峰命名法
+  configuration:
+    map-underscore-to-camel-case: true
+
+#自定义的产量函数
+qiwei:
+  appid: "wx54da097266287a37"
+  secret: "400c374d7b3a6f4df5653003444dfbc3"
